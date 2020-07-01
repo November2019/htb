@@ -1,8 +1,6 @@
 #!/usr/bin/python
-#Node JS deserialization RCE, reverse shell with help of:
-#https://raw.githubusercontent.com/ajinabraham/Node.Js-Security-Course/master/nodejsshell.py
-#THANKS ajinabraham !!!!
-#Based of Celestial (HTB)
+#Node JS deserialization RCE, reverse shell
+#Based on Celestial (HTB)
 import requests
 import sys
 import subprocess
