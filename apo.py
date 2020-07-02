@@ -28,9 +28,7 @@ s=requests.session()
 
 proxies = { 'http':'http://127.0.0.1:8080'}
 
-headers={
-	'Cookie':'wordpress_test_cookie=WP Cookie check'
-}
+#headers={	'Cookie':'wordpress_test_cookie=WP Cookie check' }
 data={
 	'log':user,
 	'pwd':pswd,
